@@ -1,0 +1,51 @@
+{
+    "tmpl_file_ext": ".tmpl",
+    "tmpl_vars": [
+        {
+            "name": "ResourceNameSC",
+            "value_input": {
+                "type": "text",
+                "text": {
+                    "label": "资源标识名（蛇形命名，如：api_token）",
+                    "value_regexp_pattern": "^[a-z]{2,}(_[a-z]{2,}){0,8}$"
+                }
+            }
+        },
+        {
+            "name": "DatabaseDriver",
+            "value_input": {
+                "type": "select",
+                "select": {
+                    "label": "数据库驱动",
+                    "values": [
+                        "MySQL",
+                        "ClickHouse",
+                        "PostgreSQL"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "DatabaseDriverLC",
+            "value_input": {
+                "type": "template",
+                "template": {
+                    "text": "{{ .DatabaseDriver | ToLowerCase }}"
+                }
+            }
+        },
+        {
+            "name": "ResourceNameUCC",
+            "value_input": {
+                "type": "template",
+                "template": {
+                    "text": "{{ .ResourceNameSC | ToUpperCamelCase }}"
+                }
+            }
+        },
+        {
+            "name": "DemoFixedValue",
+            "value": "abc"
+        }
+    ]
+}

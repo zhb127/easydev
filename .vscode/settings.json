@@ -1,0 +1,9 @@
+{
+    "editor.stickyTabStops": true,
+
+    "go.testFlags": ["-race", "-count=1"],
+    "go.testTimeout": "60s",
+    "go.testTags": "!wireinject",
+
+    "go.buildTags": "wireinject",
+}

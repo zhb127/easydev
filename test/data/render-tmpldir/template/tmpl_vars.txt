@@ -1,0 +1,6 @@
+ResourceNameSC: api_token
+DatabaseDriver: MySQL
+DatabaseDriverLC: mysql
+ResourceNameUCC: ApiToken
+DemoFixedValue: abc
+

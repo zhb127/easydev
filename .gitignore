@@ -1,0 +1,3 @@
+configs/*.json
+tmp/*
+!tmp/**/.gitkeep
