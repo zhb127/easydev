@@ -1,4 +1,4 @@
-package app
+package errs
 
 import "github.com/pkg/errors"
 

@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/pkg/errors"
+	"github.com/zhb127/easydev/errs"
 	"github.com/zhb127/easydev/pkg/file"
 	"github.com/zhb127/easydev/pkg/log"
 	"github.com/zhb127/easydev/pkg/tmpl"
@@ -42,9 +43,6 @@ func (a *app) Run() error {
 	log.SetPrefix("[构建模板变量]")
 	tmplVarValues, err := a.buildTmplVarValues()
 	if err != nil {
-		if errors.Is(err, ErrInterrupt) {
-			return nil
-		}
 		return errors.WithStack(err)
 	}
 
@@ -56,6 +54,9 @@ func (a *app) Run() error {
 		OutputDir:     a.config.OutputPath,
 	})
 	if err != nil {
+		if errors.Is(err, tmpl.ErrVarValueInputInterrupt) {
+			return errs.ErrInterrupt
+		}
 		log.Err(err)
 		return errors.WithStack(err)
 	}
@@ -104,7 +105,7 @@ func (a *app) buildTmplVarValues() (map[string]interface{}, error) {
 		tmplVarValue, err := tmplVarValueInput.Run()
 		if err != nil {
 			if errors.Is(err, tmpl.ErrVarValueInputInterrupt) {
-				return nil, ErrInterrupt
+				return nil, errs.ErrInterrupt
 			}
 			return nil, errors.Wrapf(err, "配置项：tmpl_vars[%d]，TmplVarValueInput 运行失败", k)
 		}
