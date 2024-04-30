@@ -17,6 +17,8 @@ require (
 	golang.org/x/text v0.14.0
 )
 
+replace github.com/manifoldco/promptui v0.9.0 => github.com/zhb127/promptui v0.9.2
+
 require (
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
