@@ -4,7 +4,10 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/pkg/errors"
 	"github.com/urfave/cli/v2"
+
+	"github.com/zhb127/easydev/errs"
 	"github.com/zhb127/easydev/pkg/prompt"
 )
 
@@ -45,6 +48,9 @@ var Cmd = &cli.Command{
 
 				resultInAny, err := appInst.Run()
 				if err != nil {
+					if errors.Is(err, prompt.ErrInterrupt) {
+						return errs.ErrInterrupt
+					}
 					return err
 				}
 
