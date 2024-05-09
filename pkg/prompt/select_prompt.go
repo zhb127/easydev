@@ -4,9 +4,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/manifoldco/promptui"
 	"github.com/pkg/errors"
 	"github.com/zhb127/easydev/pkg/validate"
+	"github.com/zhb127/promptui"
 )
 
 type SelectPromptConfig struct {

@@ -10,14 +10,12 @@ require (
 	github.com/go-playground/validator/v10 v10.18.0
 	github.com/go-test/deep v1.1.0
 	github.com/iancoleman/strcase v0.3.0
-	github.com/manifoldco/promptui v0.9.0
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.32.0
 	github.com/urfave/cli/v2 v2.27.1
+	github.com/zhb127/promptui v0.0.0-20240508055321-7c4a34800c15
 	golang.org/x/text v0.14.0
 )
-
-replace github.com/manifoldco/promptui v0.9.0 => github.com/zhb127/promptui v0.9.2
 
 require (
 	github.com/Masterminds/goutils v1.1.1 // indirect
